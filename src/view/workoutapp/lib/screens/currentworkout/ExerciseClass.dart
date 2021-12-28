@@ -24,11 +24,7 @@ class Exercise {
           children: [Text("Set #"), Text("Reps"), Text("Lbs")],
           mainAxisAlignment: MainAxisAlignment.spaceAround,
         ));
-    this.build.add(ElevatedButton(
-        onPressed: () {
-          
-        },
-        child: Text("Add Set")));
+    this.build.add(ElevatedButton(onPressed: () {}, child: Text("Add Set")));
   }
 
   get getBuild {
