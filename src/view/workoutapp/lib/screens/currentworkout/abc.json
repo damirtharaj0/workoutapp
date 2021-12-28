@@ -1,0 +1,28 @@
+[
+    {
+        "exerciseName": "Bench Press",
+        "reps": [
+            4,
+            5,
+            6
+        ],
+        "lbs": [
+            10,
+            20,
+            30
+        ]
+    },
+    {
+        "exerciseName": "Shoulder Press",
+        "reps": [
+            20,
+            3,
+            5
+        ],
+        "lbs": [
+            20,
+            52,
+            23
+        ]
+    }
+]
