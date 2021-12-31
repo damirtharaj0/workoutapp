@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/currentworkout/CurrentWorkoutPage.dart';
+import '../screens/currentworkout/current_workout_page.dart';
 import '../screens/plans/plan_page.dart';
 import '../screens/profile/profile.dart';
 
@@ -34,7 +34,6 @@ class _NavigationState extends State<Navigation> {
           labels[_selectedIndex],
           style: TextStyle(
             fontSize: 25,
-            // letterSpacing: 1,
             fontWeight: FontWeight.bold 
           ),
         ),
