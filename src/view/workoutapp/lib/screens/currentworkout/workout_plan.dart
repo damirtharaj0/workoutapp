@@ -30,9 +30,6 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
     for(int i = 0; i < exercises.length; i++) {
       build.add(exercises[i]);
     }
-
     return build;
   }
-
-  void addExercise() {}
 }

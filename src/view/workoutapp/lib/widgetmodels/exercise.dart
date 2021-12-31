@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../customwidgets/exercise_text_field.dart';
+import 'package:view/customwidgets/textfields/exercise_text_field.dart';
 import 'set.dart';
 
 class Exercise extends StatefulWidget {

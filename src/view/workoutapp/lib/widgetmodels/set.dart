@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:view/customwidgets/set_text_field.dart';
+import 'package:view/customwidgets/textfields/set_text_field.dart';
 
 class Set extends StatelessWidget {
   UniqueKey setKey = new UniqueKey();
