@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:view/screens/currentworkout/workout_plan.dart';
 
 class CurrentWorkout extends StatefulWidget {
   const CurrentWorkout({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(8.0),
               child: ElevatedButton(
                 child: Text('Start Workout'),
                 onPressed: () {
@@ -34,8 +35,6 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
         ],
       );
     }
-    return ListView(
-        physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-        children: page);
+    return new WorkoutPlan();
   }
 }
