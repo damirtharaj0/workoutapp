@@ -1,56 +1,84 @@
 import 'package:flutter/material.dart';
+import 'package:view/models/plan_class.dart';
 import 'package:view/widgetmodels/exercise.dart';
-import '../../widgetmodels/set.dart';
+
+import 'current_workout_page.dart';
 
 class WorkoutPlan extends StatefulWidget {
-  const WorkoutPlan({Key? key}) : super(key: key);
+  List<Exercise> exercises = [Exercise()];
+  List pageBuild = [];
+  TextEditingController workoutNameController = new TextEditingController();
 
   @override
   _WorkoutPlanState createState() => _WorkoutPlanState();
 }
 
 class _WorkoutPlanState extends State<WorkoutPlan> {
-  List<Exercise> exercises = [Exercise()];
-  List pageBuild = [];
-
   @override
   Widget build(BuildContext context) {
     buildPage();
     return ListView.builder(
-      itemCount: pageBuild.length,
+      itemCount: widget.pageBuild.length,
       itemBuilder: (BuildContext context, int index) {
-        return pageBuild[index];
+        return widget.pageBuild[index];
       },
     );
   }
 
   void buildPage() {
-    pageBuild = [];
-    pageBuild.add(ElevatedButton(
+    widget.pageBuild = [
+      TextField(
+        controller: widget.workoutNameController,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: "Workout Name",
+        ),
+      )
+    ];
+    widget.pageBuild.add(ElevatedButton(
         child: Text("Add Exercise"),
         onPressed: () {
           setState(() {
-            exercises.add(Exercise());
+            widget.exercises.add(Exercise());
           });
         }));
 
-    for (int i = 0; i < exercises.length; i++) {
-      pageBuild.add(exercises[i]);
+    for (int i = 0; i < widget.exercises.length; i++) {
+      widget.pageBuild.add(widget.exercises[i]);
     }
-    pageBuild.add(ElevatedButton(
+    widget.pageBuild.add(ElevatedButton(
       child: Text("Finish Workout"),
       onPressed: () {
-        makeClass();
+        Plan plan = makeClass();
       },
     ));
   }
 
-  void makeClass() {
-    for (int i = 0; i < exercises.length; i++) {
-      print(exercises[i].exerciseController.text);
-      for(int j = 0; j < exercises[i].sets.length; j++) {
-        print(exercises[i].sets[j].repsController.text);
+  Plan makeClass() {
+    String workoutName = (widget.workoutNameController.text);
+    List<String> exerciseNames = [];
+    List<List<int>> weight = [];
+    List<List<int>> reps = [];
+
+    for (int i = 0; i < widget.exercises.length; i++) {
+      exerciseNames.add(widget.exercises[i].exerciseController.text);
+      weight.add([]);
+      reps.add([]);
+      for (int j = 0; j < widget.exercises[i].sets.length; j++) {
+        weight[i]
+            .add(int.parse(widget.exercises[i].sets[j].weightController.text));
+        reps[i].add(int.parse(widget.exercises[i].sets[j].repsController.text));
       }
     }
+    Plan plan = new Plan(
+        planName: workoutName,
+        exerciseNames: exerciseNames,
+        weight: weight,
+        reps: reps);
+    print(plan.planName);
+    print(plan.exerciseNames);
+    print(plan.weight);
+    print(plan.reps);
+    return plan;
   }
 }
