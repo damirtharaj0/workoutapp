@@ -3,16 +3,16 @@ import 'package:view/customwidgets/textfields/exercise_text_field.dart';
 import 'set.dart';
 
 class Exercise extends StatefulWidget {
-  const Exercise({Key? key}) : super(key: key);
+  UniqueKey exerciseKey = new UniqueKey();
+  List<Set> sets = [
+    Set(index: 0)];
+  TextEditingController exerciseController = new TextEditingController();
 
   @override
   _ExerciseState createState() => _ExerciseState();
 }
 
 class _ExerciseState extends State<Exercise> {
-  UniqueKey exerciseKey = new UniqueKey();
-  List sets = [Set(index: 0)];
-
   @override
   Widget build(BuildContext context) {
     return Container(child: Column(children: show()));
@@ -22,30 +22,29 @@ class _ExerciseState extends State<Exercise> {
     List<Widget> build = [];
 
     build.add(Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ExerciseTextField(
-        key: exerciseKey,
-      ),
-    ));
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+        child: ExerciseTextField(
+          key: widget.exerciseKey,
+          controller: widget.exerciseController,
+        )));
     build.add(Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: const EdgeInsets.only(top: 8.0),
       child: Row(
         children: [Text("Set#"), Text("LBS"), Text("Reps")],
         mainAxisAlignment: MainAxisAlignment.spaceAround,
       ),
     ));
-    for (int i = 0; i < sets.length; i++) {
-      build.add(sets[i]);
+    for (int i = 0; i < widget.sets.length; i++) {
+      build.add(widget.sets[i]);
     }
     build.add(ElevatedButton(
       child: Text("Add Set"),
       onPressed: () {
         setState(() {
-          sets.add(Set(index: sets.length));
+          widget.sets.add(Set(index: widget.sets.length));
         });
       },
     ));
-
     return build;
   }
 }

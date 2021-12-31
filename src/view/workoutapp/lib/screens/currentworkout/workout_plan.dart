@@ -10,7 +10,7 @@ class WorkoutPlan extends StatefulWidget {
 }
 
 class _WorkoutPlanState extends State<WorkoutPlan> {
-  List exercises = [];
+  List<Exercise> exercises = [Exercise()];
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,24 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
           });
         }));
 
-    for(int i = 0; i < exercises.length; i++) {
+    for (int i = 0; i < exercises.length; i++) {
       build.add(exercises[i]);
     }
+    build.add(ElevatedButton(
+      child: Text("Finish Workout"),
+      onPressed: () {
+        makeClass();
+      },
+    ));
     return build;
+  }
+
+  void makeClass() {
+    for (int i = 0; i < exercises.length; i++) {
+      print(exercises[i].exerciseController.text);
+      for(int j = 0; j < exercises[i].sets.length; j++) {
+        print(exercises[i].sets[j].repsController.text);
+      }
+    }
   }
 }
