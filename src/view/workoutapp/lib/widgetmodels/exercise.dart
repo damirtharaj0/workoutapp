@@ -35,7 +35,19 @@ class _ExerciseState extends State<Exercise> {
       ),
     ));
     for (int i = 0; i < widget.sets.length; i++) {
-      build.add(widget.sets[i]);
+      build.add(
+        Dismissible(
+          child: widget.sets[i],
+          onDismissed: (left) {
+            setState(() {
+              widget.sets.removeAt(i);
+              for(int j = 0; j < widget.sets.length; j++) {
+                widget.sets[j].index = j;
+              }
+            });
+          }, key: UniqueKey(),
+        )
+      );
     }
     build.add(ElevatedButton(
       child: Text("Add Set"),
