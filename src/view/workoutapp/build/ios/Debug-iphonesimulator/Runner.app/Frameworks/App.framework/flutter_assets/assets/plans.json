@@ -2,70 +2,6 @@
     {
         "planName": "Push",
         "exerciseNames": [
-            "Pull Ups",
-            "Seated Cable Row",
-            "Cable Pullover",
-            "Hammer Curls",
-            "Incline Dumbbell Curls"
-        ],
-        "reps": [
-            [
-                6,
-                5,
-                6
-            ],
-            [
-                12,
-                12,
-                11
-            ],
-            [
-                11,
-                12,
-                11
-            ],
-            [
-                15,
-                14,
-                15
-            ],
-            [
-                15,
-                14,
-                12
-            ]
-        ],
-        "weight": [
-            [
-                45,
-                45,
-                45
-            ],
-            [
-                50,
-                50,
-                50
-            ],
-            [
-                30,
-                30,
-                30
-            ],
-            [
-                25,
-                25,
-                25
-            ],
-            [
-                15,
-                15,
-                15
-            ]
-        ]
-    },
-    {
-        "planName": "Pull",
-        "exerciseNames": [
             "Bench Press",
             "Machine Shoulder Press",
             "Dips",
@@ -135,6 +71,70 @@
                 4,
                 2,
                 4
+            ]
+        ]
+    },
+    {
+        "planName": "Pull",
+        "exerciseNames": [
+            "Pull Ups",
+            "Seated Cable Row",
+            "Cable Pullover",
+            "Hammer Curls",
+            "Incline Dumbbell Curls"
+        ],
+        "reps": [
+            [
+                6,
+                5,
+                6
+            ],
+            [
+                12,
+                12,
+                11
+            ],
+            [
+                11,
+                12,
+                11
+            ],
+            [
+                15,
+                14,
+                15
+            ],
+            [
+                15,
+                14,
+                12
+            ]
+        ],
+        "weight": [
+            [
+                45,
+                45,
+                45
+            ],
+            [
+                50,
+                50,
+                50
+            ],
+            [
+                30,
+                30,
+                30
+            ],
+            [
+                25,
+                25,
+                25
+            ],
+            [
+                15,
+                15,
+                15
             ]
         ]
     },
