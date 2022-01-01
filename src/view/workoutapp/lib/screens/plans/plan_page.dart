@@ -21,11 +21,14 @@ class _PlansPageState extends State<PlansPage> {
       body: FutureBuilder(
           initialData: [],
           future: getJsonData(),
-          builder: (context, jsonData) {
+          builder: (context, snapshot) {
             List reversedPlans = [];
-            reversedPlans = jsonData.data as List;
+            reversedPlans = snapshot.data as List;
             List plans = List.from(reversedPlans.reversed);
-            if(jsonData.hasData) {
+            if (snapshot.hasData) {
+              if (snapshot.connectionState != ConnectionState.done) {
+                return Center(child: CircularProgressIndicator());
+              }
               return ListView.builder(
                 itemCount: plans.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -35,14 +38,16 @@ class _PlansPageState extends State<PlansPage> {
                   );
                 },
               );
+            } else {
+              return Center(child: Text("Error"));
             }
-            return Center(child: Text("Error"));
           }),
     );
   }
 
   Future<List> getJsonData() async {
-    var jsonData = await get(Uri.parse("https://Flask-Backend.dannyaam9.repl.co/plans"));
+    var jsonData =
+        await get(Uri.parse("https://Flask-Backend.dannyaam9.repl.co/plans"));
     final list = json.decode(jsonData.body);
     return list.map((e) => Plan.fromJson(e)).toList();
   }
