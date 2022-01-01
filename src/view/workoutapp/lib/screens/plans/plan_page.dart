@@ -14,22 +14,28 @@ class PlansPage extends StatefulWidget {
 
 class _PlansPageState extends State<PlansPage> {
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        initialData: [],
-        future: getJsonData(),
-        builder: (context, jsonData) {
-          List plans = [];
-          plans = jsonData.data as List;
-          return ListView.builder(
-            itemCount: plans.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: SinglePlan(plans[index]),
-              );
-            },
-          );
-        });
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Plans"),
+      ),
+      body: FutureBuilder(
+          initialData: [],
+          future: getJsonData(),
+          builder: (context, jsonData) {
+            List plans = [];
+            plans = jsonData.data as List;
+            return ListView.builder(
+              itemCount: plans.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: SinglePlan(plans[index]),
+                );
+              },
+            );
+          }),
+    );
   }
 
   Future<List> getJsonData() async {

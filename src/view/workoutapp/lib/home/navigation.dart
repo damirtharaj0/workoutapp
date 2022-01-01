@@ -12,9 +12,8 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  int _selectedIndex = 0;
-  List labels = ['Plans', 'Current Workout', 'Profile'];
-  List<Widget> _widgetOptions = <Widget>[
+  int currentIndex = 0;
+  List screens = [
     PlansPage(),
     CurrentWorkout(),
     Profile(),
@@ -23,25 +22,18 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          labels[_selectedIndex],
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: _widgetOptions[_selectedIndex],
+      body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.next_plan), label: 'Plans'),
           BottomNavigationBarItem(
               icon: Icon(Icons.directions_run), label: 'Current Workout'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Plans')
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
         ],
-        currentIndex: _selectedIndex,
+        currentIndex: currentIndex,
         onTap: (int index) {
           setState(() {
-            _selectedIndex = index;
+            currentIndex = index;
           });
         },
       ),
