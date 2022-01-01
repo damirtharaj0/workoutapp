@@ -73,6 +73,12 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
         widget.update(false);
       },
     ));
+    widget.pageBuild.add(ElevatedButton(
+      child: Text("Cancel Workout"),
+      onPressed: () {
+        widget.update(false);
+      },
+    ));
   }
 
   Plan makeClass() {
