@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:view/login/welcome_page.dart';
 
 import '../screens/currentworkout/current_workout_page.dart';
 import '../screens/plans/plan_page.dart';
@@ -22,6 +23,7 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // body: WelocomePage(),
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: [
