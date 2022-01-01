@@ -3,7 +3,6 @@ import 'package:view/customwidgets/textfields/exercise_text_field.dart';
 import 'set.dart';
 
 class Exercise extends StatefulWidget {
-  UniqueKey exerciseKey = new UniqueKey();
   List<Set> sets = [
     Set(index: 0)];
   TextEditingController exerciseController = new TextEditingController();
@@ -24,7 +23,6 @@ class _ExerciseState extends State<Exercise> {
     build.add(Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0),
         child: ExerciseTextField(
-          key: widget.exerciseKey,
           controller: widget.exerciseController,
         )));
     build.add(Padding(

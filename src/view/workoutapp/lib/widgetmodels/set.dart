@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:view/customwidgets/textfields/set_text_field.dart';
 
 class Set extends StatelessWidget {
-  UniqueKey setKey = new UniqueKey();
   late int index;
   TextEditingController weightController = new TextEditingController();
   TextEditingController repsController = new TextEditingController();
@@ -27,7 +26,6 @@ class Set extends StatelessWidget {
           child: Padding(
               padding: const EdgeInsets.only(left: 48, right: 48),
               child: SetTextField(
-                key: setKey,
                 controller: weightController,
               )),
         ),
@@ -35,7 +33,6 @@ class Set extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 48, right: 48),
             child: SetTextField(
-              key: setKey,
               controller: repsController
             ),
           ),
