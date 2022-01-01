@@ -19,42 +19,40 @@ class SinglePlan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 8, right: 8),
-        child: Container(
-          child: GestureDetector(
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              elevation: 10,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: Text(
-                      planName,
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    )),
-                    Column(
-                      children: showExercises(context),
-                      mainAxisAlignment: MainAxisAlignment.center,
-                    ),
-                  ],
-                ),
+    return Padding(
+      padding: const EdgeInsets.only(left: 8, right: 8),
+      child: Container(
+        height: 136,
+        child: GestureDetector(
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            elevation: 10,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Text(
+                    planName,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  )),
+                  Column(
+                    children: showExercises(context),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                ],
               ),
             ),
-            onTap: () {
-              showDialog(
-                  context: context,
-                  builder: (_) {
-                    return PlanDialog(plan);
-                  });
-            },
           ),
+          onTap: () {
+            showDialog(
+                context: context,
+                builder: (_) {
+                  return PlanDialog(plan);
+                });
+          },
         ),
       ),
     );
