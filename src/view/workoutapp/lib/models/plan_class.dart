@@ -12,4 +12,12 @@ class Plan {
     reps = json['reps'];
     weight = json['weight'];
   }
+
+  Map<String, dynamic> toJson() => {
+    "planName" : planName,
+    "exerciseNames" : exerciseNames,
+    "reps" : reps,
+    "weight" : weight
+  };
+
 }

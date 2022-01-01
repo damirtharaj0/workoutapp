@@ -1,8 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:view/models/plan_class.dart';
 import 'package:view/widgetmodels/exercise.dart';
-
-import 'current_workout_page.dart';
+import 'package:http/http.dart' as http;
 
 class WorkoutPlan extends StatefulWidget {
   List<Exercise> exercises = [Exercise()];
@@ -37,9 +38,7 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
           controller: widget.workoutNameController,
           textAlign: TextAlign.center,
           decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25)
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
             hintText: "Workout Name",
           ),
         ),
@@ -70,6 +69,7 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
       child: Text("Finish Workout"),
       onPressed: () {
         Plan plan = makeClass();
+        postData(plan);
         widget.update(false);
       },
     ));
@@ -101,5 +101,16 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
     print(plan.weight);
     print(plan.reps);
     return plan;
+  }
+
+  void postData(Plan plan) async {
+    var response = await http.post(
+      Uri.parse("http://127.0.0.1:5000/finishedplan"),
+      body: json.encode(plan.toJson()),
+      headers: {
+        "Content-Type" : "application/json"
+      }
+    );
+    print(response.statusCode);
   }
 }
