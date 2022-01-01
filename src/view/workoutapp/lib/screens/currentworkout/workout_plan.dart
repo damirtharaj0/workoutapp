@@ -8,6 +8,8 @@ class WorkoutPlan extends StatefulWidget {
   List<Exercise> exercises = [Exercise()];
   List pageBuild = [];
   TextEditingController workoutNameController = new TextEditingController();
+  final ValueChanged<bool> update;
+  WorkoutPlan({required this.update});
 
   @override
   _WorkoutPlanState createState() => _WorkoutPlanState();
@@ -59,6 +61,7 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
       child: Text("Finish Workout"),
       onPressed: () {
         Plan plan = makeClass();
+        widget.update(false);
       },
     ));
   }

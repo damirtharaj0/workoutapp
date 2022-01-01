@@ -29,7 +29,7 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
                   child: Text('Start Workout'),
                   onPressed: () {
                     setState(() {
-                      isActiveWorkout = true;
+                      update(true);
                     });
                   },
                 ),
@@ -44,6 +44,12 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
         appBar: AppBar(
           title: Text("Current Workout"),
         ),
-        body: new WorkoutPlan());
+        body: WorkoutPlan(update: update));
+  }
+
+  update(bool activeWorkout) {
+    setState(() {
+      isActiveWorkout = activeWorkout;
+    });
   }
 }
