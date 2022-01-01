@@ -55,14 +55,12 @@ class _NavigationState extends State<Navigation> {
           )
         ],
         currentIndex: _selectedIndex,
-        onTap: _onItemTap,
+        onTap: (int index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
       ),
     );
-  }
-
-  void _onItemTap(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 }
