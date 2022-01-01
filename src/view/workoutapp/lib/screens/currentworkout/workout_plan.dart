@@ -44,7 +44,16 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
         }));
 
     for (int i = 0; i < widget.exercises.length; i++) {
-      widget.pageBuild.add(widget.exercises[i]);
+      widget.pageBuild.add(
+        Dismissible(
+          child: widget.exercises[i],
+          onDismissed: (left) {
+            setState(() {
+              widget.exercises.removeAt(i);
+            });
+          }, key: UniqueKey(),
+        )
+      );
     }
     widget.pageBuild.add(ElevatedButton(
       child: Text("Finish Workout"),
