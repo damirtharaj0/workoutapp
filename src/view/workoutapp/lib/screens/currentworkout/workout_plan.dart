@@ -105,7 +105,7 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
 
   void postData(Plan plan) async {
     var response = await http.post(
-      Uri.parse("http://127.0.0.1:5000/finishedplan"),
+      Uri.parse("https://Flask-Backend.dannyaam9.repl.co/finishedplan"),
       body: json.encode(plan.toJson()),
       headers: {
         "Content-Type" : "application/json"

@@ -23,17 +23,25 @@ class _PlansPageState extends State<PlansPage> {
           initialData: [],
           future: getJsonData(),
           builder: (context, jsonData) {
-            List plans = [];
-            plans = jsonData.data as List;
-            return ListView.builder(
-              itemCount: plans.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: SinglePlan(plans[index]),
-                );
-              },
-            );
+            List reversedPlans = [];
+            reversedPlans = jsonData.data as List;
+            List plans = List.from(reversedPlans.reversed);
+            if(jsonData.hasData) {
+              return ListView.builder(
+                itemCount: plans.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: SinglePlan(plans[index]),
+                  );
+                },
+              );
+            }
+            else {
+              return CircularProgressIndicator(
+                color: Colors.black,
+              );
+            }
           }),
     );
   }
@@ -42,7 +50,7 @@ class _PlansPageState extends State<PlansPage> {
     // final jsonData = await service.rootBundle.loadString('assets/plans.json');
     // final list = json.decode(jsonData) as List;
 
-    var jsonData = await get(Uri.parse("http://127.0.0.1:5000/plans"));
+    var jsonData = await get(Uri.parse("https://Flask-Backend.dannyaam9.repl.co/plans"));
     final list = json.decode(jsonData.body);
     return list.map((e) => Plan.fromJson(e)).toList();
   }

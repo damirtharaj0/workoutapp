@@ -11,9 +11,8 @@ def get_plans():
 @app.route("/finishedplan", methods = ["POST"])
 def post_plans():
     value = request.json
-    # return value
     fileio.appendToFile(value)
-    # return jsonify(value)
+    return jsonify(value)
 
 if __name__ == "__main__":
     app.run(debug=True)
