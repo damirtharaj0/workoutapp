@@ -8,7 +8,9 @@ class SetTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      autofocus: false,
       controller: controller,
+      keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
         decoration: InputDecoration(
           filled: false,

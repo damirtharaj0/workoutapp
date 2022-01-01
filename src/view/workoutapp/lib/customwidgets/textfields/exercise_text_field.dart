@@ -9,8 +9,10 @@ class ExerciseTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      autofocus: false,
       textAlign: TextAlign.center,
       controller: controller,
+      textCapitalization: TextCapitalization.words,
       decoration: InputDecoration(
         hintText: "Exercise Name",
       ),

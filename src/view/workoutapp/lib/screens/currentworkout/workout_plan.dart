@@ -29,21 +29,22 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
 
   void buildPage() {
     widget.pageBuild = [
-      TextField(
-        controller: widget.workoutNameController,
-        textAlign: TextAlign.center,
-        decoration: InputDecoration(
-          hintText: "Workout Name",
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextField(
+          autofocus: false,
+          textCapitalization: TextCapitalization.words,
+          controller: widget.workoutNameController,
+          textAlign: TextAlign.center,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25)
+            ),
+            hintText: "Workout Name",
+          ),
         ),
       )
     ];
-    widget.pageBuild.add(ElevatedButton(
-        child: Text("Add Exercise"),
-        onPressed: () {
-          setState(() {
-            widget.exercises.add(Exercise());
-          });
-        }));
 
     for (int i = 0; i < widget.exercises.length; i++) {
       widget.pageBuild.add(Dismissible(
@@ -56,6 +57,15 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
         key: UniqueKey(),
       ));
     }
+
+    widget.pageBuild.add(ElevatedButton(
+        child: Text("Add Exercise"),
+        onPressed: () {
+          setState(() {
+            widget.exercises.add(Exercise());
+          });
+        }));
+
     widget.pageBuild.add(ElevatedButton(
       child: Text("Finish Workout"),
       onPressed: () {
