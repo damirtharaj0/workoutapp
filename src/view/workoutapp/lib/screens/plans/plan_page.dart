@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:view/models/plan_class.dart';
 import 'package:view/screens/plans/single_plan.dart';
 import 'package:http/http.dart';
-import 'package:flutter/services.dart' as service;
 
 class PlansPage extends StatefulWidget {
   const PlansPage({Key? key}) : super(key: key);
@@ -37,32 +36,14 @@ class _PlansPageState extends State<PlansPage> {
                 },
               );
             }
-            else {
-              return CircularProgressIndicator(
-                color: Colors.black,
-              );
-            }
+            return Center(child: Text("Error"));
           }),
     );
   }
 
   Future<List> getJsonData() async {
-    // final jsonData = await service.rootBundle.loadString('assets/plans.json');
-    // final list = json.decode(jsonData) as List;
-
     var jsonData = await get(Uri.parse("https://Flask-Backend.dannyaam9.repl.co/plans"));
     final list = json.decode(jsonData.body);
     return list.map((e) => Plan.fromJson(e)).toList();
   }
 }
-
-
-
-// final jsonData = await service.rootBundle.loadString('assets/plans.json');
-//     final list = json.decode(jsonData) as List;
-
-    // var response = await get(Uri.parse("http://127.0.0.1:5000/plans"));
-    // final jsonObject = json.decode(response.body);
-    // // print(jsonObject["plans"].runtimeType);
-    // return jsonObject["plans"];
-    // return list;
