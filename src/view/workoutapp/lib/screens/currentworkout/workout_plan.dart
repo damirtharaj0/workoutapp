@@ -20,17 +20,10 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
   @override
   Widget build(BuildContext context) {
     buildPage();
-    return ListView.builder(
-      itemCount: widget.pageBuild.length,
-      itemBuilder: (BuildContext context, int index) {
-        return widget.pageBuild[index];
-      },
-    );
-  }
-
-  void buildPage() {
-    widget.pageBuild = [
-      Padding(
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Padding(
         padding: const EdgeInsets.all(8.0),
         child: TextField(
           autofocus: false,
@@ -42,8 +35,18 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
             hintText: "Workout Name",
           ),
         ),
-      )
-    ];
+      ),
+      ),
+      body: ListView.builder(
+        itemCount: widget.pageBuild.length,
+        itemBuilder: (BuildContext context, int index) {
+          return widget.pageBuild[index];
+        },
+      ),
+    );
+  }
+
+  void buildPage() {
 
     for (int i = 0; i < widget.exercises.length; i++) {
       widget.pageBuild.add(Dismissible(
@@ -70,13 +73,13 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
       onPressed: () {
         Plan plan = makeClass();
         postData(plan);
-        widget.update(false);
+        Navigator.pop(context);
       },
     ));
     widget.pageBuild.add(ElevatedButton(
       child: Text("Cancel Workout"),
       onPressed: () {
-        widget.update(false);
+        Navigator.pop(context);
       },
     ));
   }

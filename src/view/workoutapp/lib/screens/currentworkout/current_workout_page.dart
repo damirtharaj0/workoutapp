@@ -28,9 +28,9 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
                 child: ElevatedButton(
                   child: Text('Start Workout'),
                   onPressed: () {
-                    setState(() {
-                      update(true);
-                    });
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (_) => WorkoutPlan(update: update,)
+                    ));
                   },
                 ),
               ),
