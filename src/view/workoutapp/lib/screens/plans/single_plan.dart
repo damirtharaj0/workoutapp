@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../models/plan_class.dart';
-import 'plan_dialog.dart';
+import 'expanded_plan.dart';
 
 class SinglePlan extends StatelessWidget {
   late final Plan plan;
@@ -48,7 +48,7 @@ class SinglePlan extends StatelessWidget {
           ),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
-              builder: (_) => PlanDialog(plan)
+              builder: (_) => ExpandedPlan(plan)
             ));
             // showDialog(
             //     context: context,

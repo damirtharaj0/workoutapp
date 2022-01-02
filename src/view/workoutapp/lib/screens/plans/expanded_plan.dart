@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../models/plan_class.dart';
 
-class PlanDialog extends StatelessWidget {
+class ExpandedPlan extends StatelessWidget {
   late final String planName;
   late final List exerciseNames;
   late final List weight;
   late final List reps;
 
-  PlanDialog(Plan plan) {
+  ExpandedPlan(Plan plan) {
     this.planName = plan.planName;
     this.exerciseNames = plan.exerciseNames;
     this.weight = plan.weight;
