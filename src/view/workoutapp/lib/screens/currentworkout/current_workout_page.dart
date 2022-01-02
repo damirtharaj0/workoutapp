@@ -29,7 +29,7 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
                   child: Text('Start Workout'),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(
-                      builder: (_) => WorkoutPlan(update: update,)
+                      builder: (_) => WorkoutPlan()
                     ));
                   },
                 ),
@@ -44,12 +44,6 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
         appBar: AppBar(
           title: Text("Current Workout"),
         ),
-        body: WorkoutPlan(update: update));
-  }
-
-  update(bool activeWorkout) {
-    setState(() {
-      isActiveWorkout = activeWorkout;
-    });
+        body: WorkoutPlan());
   }
 }

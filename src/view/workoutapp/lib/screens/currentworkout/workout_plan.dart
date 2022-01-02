@@ -9,8 +9,6 @@ class WorkoutPlan extends StatefulWidget {
   List<Exercise> exercises = [Exercise()];
   List pageBuild = [];
   TextEditingController workoutNameController = new TextEditingController();
-  final ValueChanged<bool> update;
-  WorkoutPlan({required this.update});
 
   @override
   _WorkoutPlanState createState() => _WorkoutPlanState();
