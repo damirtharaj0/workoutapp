@@ -19,23 +19,15 @@ class ExpandedPlan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(planName),
+        title: Text(planName, style: TextStyle(fontSize: 25)),
       ),
       body: Container(
         child: ListView(
-          physics: BouncingScrollPhysics(
-              parent: AlwaysScrollableScrollPhysics()),
+          physics:
+              BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Align(
-                child: Text(
-                  planName,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
               child: Column(children: buildSinglePlanDialog(context)),
             ),
           ],
@@ -47,15 +39,24 @@ class ExpandedPlan extends StatelessWidget {
   List<Widget> buildSinglePlanDialog(BuildContext context) {
     List<Widget> widget = [];
     for (int i = 0; i < exerciseNames.length; i++) {
-      widget.add(Text(exerciseNames[i]));
+      widget.add(Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+        child: Text(
+          exerciseNames[i],
+          style: TextStyle(fontSize: 20),
+        ),
+      ));
       widget.add(
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20))),
+                border: Border.all(
+                  color: Colors.blue,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: buildSingleExerciseStats(i),
               ),
@@ -72,7 +73,7 @@ class ExpandedPlan extends StatelessWidget {
     list.add(Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        children: [Text('Set #'), Text('Lbs'), Text('Reps')],
+        children: [Text('Set #', style: TextStyle(fontSize: 17),), Text('Lbs', style: TextStyle(fontSize: 17)), Text('Reps', style: TextStyle(fontSize: 17))],
         mainAxisAlignment: MainAxisAlignment.spaceAround,
       ),
     ));
@@ -82,7 +83,7 @@ class ExpandedPlan extends StatelessWidget {
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(3.0),
+              padding: const EdgeInsets.all(8.0),
               child: Center(child: Text((j + 1).toString())),
             ),
           ),
