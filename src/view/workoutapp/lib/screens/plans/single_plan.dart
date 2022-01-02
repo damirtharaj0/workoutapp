@@ -4,21 +4,22 @@ import 'expanded_plan.dart';
 
 class SinglePlan extends StatelessWidget {
   late final Plan plan;
-  late final planName;
-  late final exerciseNames;
-  late final reps;
-  late final weight;
+  // late final planName;
+  // late final exerciseNames;
+  // late final reps;
+  // late final weight;
 
   SinglePlan(Plan plan) {
     this.plan = plan;
-    this.planName = plan.planName;
-    this.exerciseNames = plan.exerciseNames;
-    this.reps = plan.reps;
-    this.weight = plan.weight;
+    // this.planName = plan.planName;
+    // this.exerciseNames = plan.exerciseNames;
+    // this.reps = plan.reps;
+    // this.weight = plan.weight;
   }
 
   @override
   Widget build(BuildContext context) {
+    plan.calculateTotalVolume();
     return Padding(
       padding: const EdgeInsets.only(left: 8, right: 8),
       child: Container(
@@ -35,11 +36,14 @@ class SinglePlan extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Text(
-                    planName,
+                    plan.planName,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   )),
                   Column(
-                    children: showExercises(context),
+                    children: [
+                      Text("Total Volume"),
+                      Text(plan.totalVolume.toString())
+                    ],
                     mainAxisAlignment: MainAxisAlignment.center,
                   ),
                 ],
@@ -63,8 +67,8 @@ class SinglePlan extends StatelessWidget {
 
   List<Widget> showExercises(BuildContext context) {
     List<Widget> names = [];
-    if (exerciseNames.length < 5) {
-      for (int i = 0; i < exerciseNames.length; i++) {
+    if (plan.exerciseNames.length < 5) {
+      for (int i = 0; i < plan.exerciseNames.length; i++) {
         names.add(Text(
           plan.exerciseNames[i],
           style: TextStyle(fontWeight: FontWeight.bold),
