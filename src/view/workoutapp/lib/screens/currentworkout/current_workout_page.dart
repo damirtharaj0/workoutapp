@@ -17,7 +17,7 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
     if (isActiveWorkout == false) {
       return Scaffold(
         appBar: AppBar(
-          title: Text("Current Workout"),
+          title: Text("Current Workout", style: TextStyle(fontSize: 25)),
         ),
         body: Stack(
           children: [

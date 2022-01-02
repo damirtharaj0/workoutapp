@@ -16,7 +16,7 @@ class _PlansPageState extends State<PlansPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Plans"),
+        title: Text("Plans", style: TextStyle(fontSize: 25)),
       ),
       body: FutureBuilder(
           initialData: [],
