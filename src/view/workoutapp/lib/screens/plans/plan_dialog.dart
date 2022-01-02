@@ -17,31 +17,30 @@ class PlanDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Container(
-          height: MediaQuery.of(context).size.height * .75,
-          width: MediaQuery.of(context).size.height * .45,
-          child: Container(
-            child: ListView(
-              physics: BouncingScrollPhysics(
-                  parent: AlwaysScrollableScrollPhysics()),
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Align(
-                    child: Text(
-                      planName,
-                    ),
-                  ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(planName),
+      ),
+      body: Container(
+        child: ListView(
+          physics: BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics()),
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                child: Text(
+                  planName,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(children: buildSinglePlanDialog(context)),
-                ),
-              ],
+              ),
             ),
-          )),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(children: buildSinglePlanDialog(context)),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

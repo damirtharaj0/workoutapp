@@ -47,11 +47,14 @@ class SinglePlan extends StatelessWidget {
             ),
           ),
           onTap: () {
-            showDialog(
-                context: context,
-                builder: (_) {
-                  return PlanDialog(plan);
-                });
+            Navigator.push(context, MaterialPageRoute(
+              builder: (_) => PlanDialog(plan)
+            ));
+            // showDialog(
+            //     context: context,
+            //     builder: (_) {
+            //       return PlanDialog(plan);
+            //     });
           },
         ),
       ),
