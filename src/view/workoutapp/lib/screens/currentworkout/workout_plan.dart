@@ -29,7 +29,6 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
           controller: widget.workoutNameController,
           textAlign: TextAlign.center,
           decoration: InputDecoration(
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
             hintText: "Workout Name",
           ),
         ),
