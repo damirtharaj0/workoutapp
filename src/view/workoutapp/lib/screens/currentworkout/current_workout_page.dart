@@ -14,36 +14,35 @@ class _CurrentWorkoutState extends State<CurrentWorkout> {
 
   @override
   Widget build(BuildContext context) {
-    if (isActiveWorkout == false) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("Current Workout", style: TextStyle(fontSize: 25)),
-        ),
-        body: Stack(
-          children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  child: Text('Start Workout'),
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (_) => WorkoutPlan()
-                    ));
-                  },
-                ),
+    // if (isActiveWorkout == false) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Current Workout", style: TextStyle(fontSize: 25)),
+      ),
+      body: Stack(
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                child: Text('Start Workout'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => WorkoutPlan()));
+                },
               ),
             ),
-            Center(child: Text('No Active Workout'))
-          ],
-        ),
-      );
-    }
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Current Workout"),
-        ),
-        body: WorkoutPlan());
+          ),
+          Center(child: Text('No Active Workout'))
+        ],
+      ),
+    );
+    // }
+    // return Scaffold(
+    //     appBar: AppBar(
+    //       title: Text("Current Workout"),
+    //     ),
+    //     body: WorkoutPlan());
   }
 }

@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class WorkoutPlan extends StatefulWidget {
   List<Exercise> exercises = [Exercise()];
-  List pageBuild = [];
+  // List pageBuild = [];
   TextEditingController workoutNameController = new TextEditingController();
 
   @override
@@ -17,7 +17,7 @@ class WorkoutPlan extends StatefulWidget {
 class _WorkoutPlanState extends State<WorkoutPlan> {
   @override
   Widget build(BuildContext context) {
-    buildPage();
+    List pageBuild = buildPage();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -36,18 +36,19 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
       ),
       ),
       body: ListView.builder(
-        itemCount: widget.pageBuild.length,
+        itemCount: pageBuild.length,
         itemBuilder: (BuildContext context, int index) {
-          return widget.pageBuild[index];
+          return pageBuild[index];
         },
       ),
     );
   }
 
-  void buildPage() {
+  List<Widget> buildPage() {
+    List<Widget> pageBuild = [];
 
     for (int i = 0; i < widget.exercises.length; i++) {
-      widget.pageBuild.add(Dismissible(
+      pageBuild.add(Dismissible(
         child: widget.exercises[i],
         onDismissed: (left) {
           setState(() {
@@ -58,7 +59,7 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
       ));
     }
 
-    widget.pageBuild.add(ElevatedButton(
+    pageBuild.add(ElevatedButton(
         child: Text("Add Exercise"),
         onPressed: () {
           setState(() {
@@ -66,7 +67,7 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
           });
         }));
 
-    widget.pageBuild.add(ElevatedButton(
+    pageBuild.add(ElevatedButton(
       child: Text("Finish Workout"),
       onPressed: () {
         Plan plan = makeClass();
@@ -74,12 +75,13 @@ class _WorkoutPlanState extends State<WorkoutPlan> {
         Navigator.pop(context);
       },
     ));
-    widget.pageBuild.add(ElevatedButton(
+    pageBuild.add(ElevatedButton(
       child: Text("Cancel Workout"),
       onPressed: () {
         Navigator.pop(context);
       },
     ));
+    return pageBuild;
   }
 
   Plan makeClass() {
