@@ -14,5 +14,4 @@ def post_plans():
     fileio.appendToFile(value)
     return jsonify(value)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+app.run()

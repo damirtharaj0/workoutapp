@@ -1,237 +1,96 @@
 [
     {
+        "planName": "Squat",
+        "exerciseNames": [
+            "Low Bar Back Squat"
+        ],
+        "reps": [
+            [
+                5,
+                5,
+                10
+            ]
+        ],
+        "weight": [
+            [
+                225,
+                215,
+                175
+            ]
+        ]
+    },
+    {
         "planName": "Push",
         "exerciseNames": [
-            "Bench Press",
+            "Dumbbell Bench Press",
             "Machine Shoulder Press",
-            "Dips",
-            "Skullcrushers",
-            "Cable Lateral Raises",
-            "Cable Kickbacks"
+            "Incline Chest Fly",
+            "Dumbbell Lateral Raise",
+            "Rope Cable Pushdown",
+            "Straight Bar Pushdown"
         ],
         "reps": [
             [
-                4,
-                2,
-                6
-            ],
-            [
-                4,
-                3,
-                2
-            ],
-            [
-                4,
-                2,
-                5
-            ],
-            [
-                2,
-                3,
-                5
-            ],
-            [
-                4,
-                2,
-                4
-            ],
-            [
-                4,
-                2,
-                4
-            ]
-        ],
-        "weight": [
-            [
-                4,
-                2,
-                6
-            ],
-            [
-                4,
-                3,
-                2
-            ],
-            [
-                4,
-                2,
-                5
-            ],
-            [
-                2,
-                3,
-                5
-            ],
-            [
-                4,
-                2,
-                4
-            ],
-            [
-                4,
-                2,
-                4
-            ]
-        ]
-    },
-    {
-        "planName": "Pull",
-        "exerciseNames": [
-            "Pull Ups",
-            "Seated Cable Row",
-            "Cable Pullover",
-            "Hammer Curls",
-            "Incline Dumbbell Curls"
-        ],
-        "reps": [
-            [
-                6,
-                5,
-                6
-            ],
-            [
                 12,
-                12,
-                11
-            ],
-            [
-                11,
-                12,
-                11
-            ],
-            [
-                15,
-                14,
-                15
-            ],
-            [
-                15,
-                14,
+                9,
                 12
-            ]
-        ],
-        "weight": [
-            [
-                45,
-                45,
-                45
             ],
             [
-                50,
-                50,
-                50
+                12,
+                11,
+                12
             ],
             [
-                30,
-                30,
-                30
+                14,
+                12,
+                16,
+                10
             ],
             [
-                25,
-                25,
-                25
+                18,
+                16,
+                15
             ],
             [
+                20,
                 15,
+                8
+            ],
+            [
                 15,
                 15
             ]
-        ]
-    },
-    {
-        "planName": "Legs",
-        "exerciseNames": [
-            "Squat",
-            "Romanian Deadlifts",
-            "Single Leg Press",
-            "Leg Extensions",
-            "Seated Leg Curls",
-            "Standing Calf Raises",
-            "Decline Crunches",
-            "Long Lever Planks"
-        ],
-        "reps": [
-            [
-                4,
-                2,
-                6
-            ],
-            [
-                4,
-                3,
-                2
-            ],
-            [
-                4,
-                2,
-                5
-            ],
-            [
-                2,
-                3,
-                5
-            ],
-            [
-                4,
-                2,
-                4
-            ],
-            [
-                4,
-                2,
-                4
-            ],
-            [
-                4,
-                2,
-                4
-            ],
-            [
-                4,
-                2,
-                4
-            ]
         ],
         "weight": [
             [
-                4,
-                2,
-                6
+                65,
+                65,
+                55
             ],
             [
-                4,
-                3,
-                2
+                45,
+                55,
+                15
             ],
             [
-                4,
-                2,
-                5
+                13,
+                13,
+                10,
+                7
             ],
             [
-                2,
-                3,
-                5
+                20,
+                20,
+                20
             ],
             [
-                4,
-                2,
-                4
+                28,
+                28,
+                28
             ],
             [
-                4,
-                2,
-                4
-            ],
-            [
-                4,
-                2,
-                4
-            ],
-            [
-                4,
-                2,
-                4
+                28,
+                28
             ]
         ]
     }

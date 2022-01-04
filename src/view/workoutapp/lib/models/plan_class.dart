@@ -4,22 +4,14 @@ class Plan {
   late List reps;
   late List weight;
   int totalVolume = 0;
-  List exerciseVolumes = [];
 
   Plan({required this.planName, required this.exerciseNames, required this.reps, required this.weight});
 
-  void calculateExerciseVolumes() {
+  void calculateTotalVolume() {
     for(int i = 0; i < reps.length; i++) {
       for(int j = 0; j < reps[i].length; j++) {
-        exerciseVolumes.add(weight[i][j] * reps[i][j]);
+        totalVolume += weight[i][j] * reps[i][j] as int;
       }
-    }
-  }
-
-  void calculateTotalVolume() {
-    calculateExerciseVolumes();
-    for(int i = 0; i < exerciseVolumes.length; i++) {
-      totalVolume += exerciseVolumes[i] as int;
     }
   }
 
