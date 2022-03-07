@@ -9,13 +9,15 @@ app.config["JSON_SORT_KEYS"] = False
 
 @app.route("/plans", methods = ["GET"])
 def get_plans():
-    return jsonify(fileio.readFile())
+    return db.getPlans()
+    # return jsonify(fileio.readFile())
 
-@app.route("/finishedplan", methods = ["POST"])
-def post_plans():
+@app.route("/addPlan", methods = ["POST"])
+def addPlan():
     value = request.json
-    fileio.appendToFile(value)
-    return jsonify(value)
+    print(value)
+    return db.addPlan(value['planName'], value['exerciseNames'], value['reps'], value['weight'])
+    # planName, exerciseNames, reps, weight
 
 @app.route("/add_user", methods = ["POST"])
 def addUser():
