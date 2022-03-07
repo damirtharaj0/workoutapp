@@ -19,7 +19,7 @@ class SinglePlan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    plan.calculateTotalVolume();
+    // plan.calculateTotalVolume();
     return Padding(
       padding: const EdgeInsets.only(left: 8, right: 8),
       child: Container(

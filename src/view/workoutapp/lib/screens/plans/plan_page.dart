@@ -46,9 +46,9 @@ class _PlansPageState extends State<PlansPage> {
   }
 
   Future<List> getJsonData() async {
-    var jsonData =
-        await get(Uri.parse("https://Flask-Backend.dannyaam9.repl.co/plans"));
+    var jsonData = await get(Uri.parse("https://Flask-Backend.dannyaam9.repl.co/plans"));
     final list = json.decode(jsonData.body);
+    print('list');
     return list.map((e) => Plan.fromJson(e)).toList();
   }
 }
