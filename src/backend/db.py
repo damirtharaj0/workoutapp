@@ -4,7 +4,7 @@ from pymongo import MongoClient
 class Database:
     def __init__(self):
         cluster = MongoClient(
-            "mongodb+srv://sauceque:Cricket123@cluster0.rahww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+            "mongodb+srv://Username:Password@cluster0.rahww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = cluster['WorkoutApp']
         self.users = db['users']
         self.plans = db['plans']
